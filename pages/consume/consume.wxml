@@ -1,0 +1,20 @@
+<!--pages/consume/consume.wxml-->
+<view class="page flex-wrp">
+  <view class="flex-item flex-item-center demo-text-1">
+    <view class="flex-item-center-west demo-text-3">
+      <view class='flex-item-center-west-child'><text>本月消费</text></view>
+      <view class='flex-item-center-west-child cost-style'>￥2300</view>
+      <view class='flex-item-center-west-child'><text>今日消费</text></view>
+      <view class='flex-item-center-west-child cost-style'>￥200</view>
+    </view>
+    <view class="flex-item-center-center demo-text-4">
+      <canvas canvas-id="ringCanvas" class="canvas"></canvas>
+    </view>
+  </view>
+  <view class="flex-item flex-item-south demo-text-2">
+    <view><view>日均消费</view><view>￥21</view></view>
+    <view><view>本月剩余</view><view>￥4331</view></view>
+    <view><view>日均可用</view><view>￥173</view></view>
+    <view><view>距离月末</view><view>25天</view></view>
+  </view>
+</view>

@@ -1,0 +1,41 @@
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view class="page-section">
+    <view class="weui-cells__title">花费(￥)</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <input name="hf" class="weui-input" type="digit" auto-focus placeholder="500" />
+      </view>
+    </view>
+  </view>
+  <view class="page-section">
+    <view class="weui-cells__title">分类</view>
+    <view class="weui-cell weui-cells_after-title">
+      <picker name="fl" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view class="picker">
+          请选择：{{array[index]}}
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class="page-section">
+    <view class="weui-cells__title">备注</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <input name="bz" class="weui-input" placeholder="火锅" />
+      </view>
+    </view>
+  </view>
+  <view class="page-section">
+    <view class="weui-cells__title">日期</view>
+    <view class="weui-cell weui-cells_after-title">
+      <picker name="rq" mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+        <view class="picker">
+          请选择: {{date}}
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class="btn-area">
+    <button type="primary" size="default" formType="submit">记一笔</button>
+  </view>
+</form>

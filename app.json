@@ -1,0 +1,46 @@
+{
+  "pages": [
+    "pages/charge/charge",
+    "pages/consume/consume",
+    "pages/category/category",
+    "pages/report/report"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "我的记账本",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#64a0ea",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/consume/consume",
+        "iconPath": "img/home.png",
+        "selectedIconPath": "img/home-active.png",
+        "text": "消费一览"
+      },
+      {
+        "pagePath": "pages/charge/charge",
+        "iconPath": "img/record.png",
+        "selectedIconPath": "img/record-active.png",
+        "text": "记一笔"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "iconPath": "img/category.png",
+        "selectedIconPath": "img/category-active.png",
+        "text": "消费分类"
+      },
+      {
+        "pagePath": "pages/report/report",
+        "iconPath": "img/report.png",
+        "selectedIconPath": "img/report-active.png",
+        "text": "月消费报表"
+      }
+    ]
+  }
+}
