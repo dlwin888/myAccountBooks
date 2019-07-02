@@ -1,7 +1,0 @@
-<!--pages/category/category.wxml-->
-<view class="section">
-  <view class="flex-wrp" style="flex-direction:row;">
-    <view class="flex-item">分类名称</view>
-    <view class="flex-item">消费次数</view>
-  </view>
-</view>

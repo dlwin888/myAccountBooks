@@ -5,7 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    categoryList: [
+      { name: "餐饮", count: 0 }, 
+      { name: "交通", count: 0 }, 
+      { name: "住宿", count: 0 },
+      { name: "话费", count: 0 }
+    ]
   },
 
   /**

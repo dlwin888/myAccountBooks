@@ -1,0 +1,8 @@
+<!--miniprogram/pages/config/config.wxml-->
+<view>
+  <view>本月预算(￥)</view>
+  <form bindsubmit='updateBudget'>
+    <input name="budget" type="number" value="{{budget}}" />
+    <button type="primary" size="mini" form-type='submit'>更新</button>
+  </form>
+</view>

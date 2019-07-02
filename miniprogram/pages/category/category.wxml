@@ -1,0 +1,18 @@
+<!--pages/category/category.wxml-->
+<view class="section">
+  <view class="flex-wrp" style="flex-direction:row;">
+    <view class="flex-item">分类名称</view>
+    <view class="flex-item">消费次数</view>
+  </view>
+  <view class="book-list">
+    <view wx:for="{{categoryList}}" wx:key="item.name" class="category">
+      <view class="flex-item">{{item.name}}</view>
+      <view class="flex-item">{{item.count}}</view>
+    </view>
+  </view>
+  <view class="btns">
+    <button type="primary" size="mini" formType="submit">新增</button>
+    <button type="primary" size="mini" formType="submit">编辑</button>
+    <button type="primary" size="mini" formType="submit">删除</button>
+  </view>
+</view>

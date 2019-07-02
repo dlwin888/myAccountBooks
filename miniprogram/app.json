@@ -1,9 +1,10 @@
 {
   "pages": [
-    "pages/charge/charge",
     "pages/consume/consume",
+    "pages/charge/charge",
     "pages/category/category",
-    "pages/report/report"
+    "pages/report/report",
+    "pages/config/config"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -40,7 +41,14 @@
         "iconPath": "img/report.png",
         "selectedIconPath": "img/report-active.png",
         "text": "月消费报表"
+      },
+      {
+        "pagePath": "pages/config/config",
+        "iconPath": "img/report.png",
+        "selectedIconPath": "img/report-active.png",
+        "text": "设置"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

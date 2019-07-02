@@ -14,7 +14,7 @@
   <view class="flex-item flex-item-south demo-text-2">
     <view><view>日均消费</view><view>￥{{avgSpendPerDay}}</view></view>
     <view><view>本月剩余</view><view>￥{{monthAvailable}}</view></view>
-    <view><view>日均可用</view><view>￥{dayAvgAvailable}</view></view>
+    <view><view>日均可用</view><view>￥{{dayAvgAvailable}}</view></view>
     <view><view>距离月末</view><view>{{monthLeftDay}}天</view></view>
   </view>
 </view>
