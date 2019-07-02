@@ -30,13 +30,21 @@ Page({
     })
   },
   updateBudget: function(e) {
+    const budget = e.detail.value.budget;
+    if(budget === this.data.budget){
+      return;
+    }
+
     const db = wx.cloud.database()
     db.collection('config').doc('0').update({
       data: {
-        budget: e.detail.value.budget
+        budget: budget
       }
     }).then(res => {
       console.log(res)
+      this.setData({
+        budget: budget
+      })
     })
   },
 
