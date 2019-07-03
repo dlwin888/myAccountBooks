@@ -20,8 +20,15 @@ Page({
         openid: app.globalData.openid
       })
     }
-
-    const db = wx.cloud.database()
+    
+    this.setData({
+      db: wx.cloud.database()
+    })
+    
+    this.getBuget()
+  },
+  getBuget: function(e) {
+    const db = this.data.db;
     db.collection('config').doc('0').get().then(res => {
       console.log(res.data)
       this.setData({
@@ -35,7 +42,7 @@ Page({
       return;
     }
 
-    const db = wx.cloud.database()
+    const db = this.data.db;
     db.collection('config').doc('0').update({
       data: {
         budget: budget
