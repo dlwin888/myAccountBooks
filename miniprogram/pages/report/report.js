@@ -1,66 +1,58 @@
 // pages/report/report.js
-Page({
-
-  /**
-   * 页面的初始数据
-   */
-  data: {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+var wxCharts = require('../../utils/wxcharts-min.js');
+var app = getApp();
+var columnChart = null;
+var chartData = {
+  main: {
+    title: '月消费报表',
+    data: [15, 20, 45, 37],
+    categories: ['1日', '2日', '4日', '13日']
   }
-})
+};
+Page({
+  data: {
+    chartTitle: '月消费报表'
+  },
+  onReady: function (e) {
+    var windowWidth = 320;
+    try {
+      var res = wx.getSystemInfoSync();
+      windowWidth = res.windowWidth;
+    } catch (e) {
+      console.error('getSystemInfoSync failed!');
+    }
+
+    columnChart = new wxCharts({
+      canvasId: 'columnCanvas',
+      type: 'column',
+      animation: true,
+      categories: chartData.main.categories,
+      series: [{
+        name: '月消费',
+        data: chartData.main.data,
+        format: function (val, name) {
+          return val.toFixed(2) + '元';
+        }
+      }],
+      yAxis: {
+        format: function (val) {
+          return val + '元';
+        },
+        title: '',
+        min: 0
+      },
+      xAxis: {
+        disableGrid: false,
+        type: 'calibration'
+      },
+      extra: {
+        column: {
+          width: 15
+        }
+      },
+      legend: false,
+      width: windowWidth,
+      height: 150,
+    });
+  }
+});

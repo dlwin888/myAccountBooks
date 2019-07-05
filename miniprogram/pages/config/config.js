@@ -29,11 +29,25 @@ Page({
   },
   getBuget: function(e) {
     const db = this.data.db;
-    db.collection('config').doc('0').get().then(res => {
-      console.log(res.data)
-      this.setData({
-        budget: res.data.budget
-      })
+    db.collection('config').count().then(res => {
+      console.log(res.total);
+      if (res.total) {
+        db.collection('config').doc('0').get().then(res => {
+          console.log(res.data)
+          this.setData({
+            budget: res.data.budget
+          })
+        })
+      }
+      else {
+        db.collection('config').doc('0').set({
+          data: {
+            budget: this.data.budget
+          }
+        }).then(res => {
+          console.log(res)
+        })
+      }
     })
   },
   updateBudget: function(e) {
