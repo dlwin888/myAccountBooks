@@ -12,3 +12,16 @@
   bottom: 30rpx;
   left: 0;
 }
+
+.tellinput {
+  border: 1px solid #efeff4;
+}
+
+.tellsection input {
+  color: #000;
+  width: 100%;
+}
+
+.active {
+  background-color: #39f;
+}

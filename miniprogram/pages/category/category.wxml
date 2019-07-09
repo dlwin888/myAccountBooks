@@ -5,7 +5,7 @@
     <view class="flex-item">消费次数</view>
   </view>
   <view class="book-list">
-    <view wx:for="{{categoryList}}" wx:key="item.name" class="category {{index == 0 ? 'active' : ''}}">
+    <view wx:for="{{categoryList}}" wx:key="item.name" bindtap="onActive" data-index='{{index}}' class="category {{index == categorySelect ? 'active' : ''}}">
       <view class="flex-item">{{item.name}}</view>
       <view class="flex-item">{{item.count}}</view>
     </view>
@@ -14,5 +14,9 @@
     <button type="primary" size="mini" bindtap="add">新增</button>
     <button type="primary" size="mini" bindtap="edit">编辑</button>
     <button type="primary" size="mini" bindtap="del">删除</button>
+  </view>
+  <view class="container">
+   <import src="../template/addCategory.wxml" />
+   <template is="add" data="{{...addtell}}" />
   </view>
 </view>
