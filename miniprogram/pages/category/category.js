@@ -93,11 +93,16 @@ Page({
         categoryName: cur.name,
         categoryCount: cur.count,
         opttype: 'edit'
-      } 
+      },
+      newCategoryName: cur.name,
+      newCategoryCount: cur.count
     })
   },
   del: function(e) {
-    this.data.categoryList.splice(this.data.categorySelect, 1);
+    this.data.categoryList.splice(this.data.categorySelect, 1); 
+    this.updateCategory();
+  },
+  updateCategory: function(){
     this.setData({
       categoryList: this.data.categoryList
     })
@@ -140,60 +145,26 @@ Page({
           name: this.data.newCategoryName,
           count: this.data.newCategoryCount
         })
-        this.setData({
-          categoryList: this.data.categoryList
-        })
-        const db = this.data.db;
-        db.collection('category').doc(this.data._id).update({
-          data: {
-            categoryList: this.data.categoryList
-          }
-        }).then(res => {
-          console.log(res)
-
-          this.setData({
-            newCategoryName: '',
-            newCategoryCount: 0
-          })
-        })
+        this.updateCategory();
       }
     }
     else if(optType == 'edit'){
       let cur = this.data.categoryList[this.data.categorySelect];
-      if (cur.count != this.data.newCategoryCount){
+      if (cur.name != this.data.newCategoryName || cur.count != this.data.newCategoryCount){
         this.data.categoryList[this.data.categorySelect].count = this.data.newCategoryCount;
-        this.setData({
-          categoryList: this.data.categoryList
-        })
-        const db = this.data.db;
-        db.collection('category').doc(this.data._id).update({
-          data: {
-            categoryList: this.data.categoryList
-          }
-        }).then(res => {
-          console.log(res)
-
-          this.setData({
-            newCategoryName: '',
-            newCategoryCount: 0
-          })
-        })
+        this.updateCategory();
       }
     }
 
     //弹出框确认操作
     this.setData({
-      addtell: {
-        addtellHidden: true
-      }
+      'addtell.addtellHidden': true  
     })
   },
   modalCancel: function() {
     //弹出框取消操作
     this.setData({
-      addtell: {
-        addtellHidden: true,
-      }
+      'addtell.addtellHidden': true  
     })
 
     console.log('用户点击取消')
