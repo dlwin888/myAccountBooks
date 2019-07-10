@@ -25,11 +25,9 @@ Page({
     addtell: {
       addtellHidden: true, //弹出框显示/隐藏
       categoryName: '',
-      categoryCount: '',
       opttype: 'add'
     },
     newCategoryName: '',
-    newCategoryCount: 0,
     _id: 0,
     categorySelect: 0,
   },
@@ -91,11 +89,9 @@ Page({
       addtell: {
         addtellHidden: false,
         categoryName: cur.name,
-        categoryCount: cur.count,
         opttype: 'edit'
       },
-      newCategoryName: cur.name,
-      newCategoryCount: cur.count
+      newCategoryName: cur.name
     })
   },
   del: function(e) {
@@ -115,19 +111,13 @@ Page({
       console.log(res)
 
       this.setData({
-        newCategoryName: '',
-        newCategoryCount: 0
+        newCategoryName: ''
       })
     })
   },
   bindNameInput: function(e) {
     this.setData({
       newCategoryName: e.detail.value
-    })
-  },
-  bindCountInput: function (e) {
-    this.setData({
-      newCategoryCount: parseInt(e.detail.value)
     })
   },
   modalConfirm: function() {
@@ -143,15 +133,15 @@ Page({
       } else {
         this.data.categoryList.push({
           name: this.data.newCategoryName,
-          count: this.data.newCategoryCount
+          count: 0
         })
         this.updateCategory();
       }
     }
     else if(optType == 'edit'){
       let cur = this.data.categoryList[this.data.categorySelect];
-      if (cur.name != this.data.newCategoryName || cur.count != this.data.newCategoryCount){
-        this.data.categoryList[this.data.categorySelect].count = this.data.newCategoryCount;
+      if (cur.name != this.data.newCategoryName){
+        cur.name = this.data.newCategoryName;
         this.updateCategory();
       }
     }
@@ -162,15 +152,14 @@ Page({
     })
   },
   modalCancel: function() {
+    console.log('用户点击取消')
     //弹出框取消操作
     this.setData({
       'addtell.addtellHidden': true  
     })
-
-    console.log('用户点击取消')
+    
     this.setData({
-      newCategoryName: '',
-      newCategoryCount: 0
+      newCategoryName: ''
     })
   },
   /**

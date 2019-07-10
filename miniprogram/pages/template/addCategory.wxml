@@ -4,7 +4,6 @@
       <label>
         <view class="tellsection">
           <input name="categoryName" bindinput="bindNameInput" placeholder="分类名称" value="{{categoryName}}" auto-focus/>
-          <input name="categoryCount" bindinput="bindCountInput" type="number" placeholder="消费次数" value="{{categoryCount}}" /> 
         </view>
       </label>
     </modal>
